@@ -5,6 +5,10 @@ var cookieParser = require("cookie-parser")
 var logger = require("morgan")
 const dbConexion = require("./databases/db")
 
+//controlador de roles
+const roles = require("./controllers/rolesCreadorController")
+
+//rutas
 var indexRouter = require("./routes/index")
 var usersRouter = require("./routes/users")
 
@@ -12,6 +16,9 @@ var app = express()
 
 //Databases
 dbConexion()
+
+//crear roles
+roles()
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"))
